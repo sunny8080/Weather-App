@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App | Sunny</title>
+        <link rel="shortcut icon" href="./assests/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="./css/style.css" />
+
+        <!-- meta tags -->
+        <!-- Twitter -->
+        <meta name="twitter:card" content="" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:creator" content="@" />
+        <meta name="twitter:title" content="Weather App - By Sunny" />
+        <meta name="twitter:description" content="Weather App by using HTML, CSS and JavaScript" />
+        <meta name="twitter:image" content="https://i.postimg.cc/wvDS5w6r/wea.jpg" />
+
+        <!-- Facebook -->
+        <meta property="og:url" content="https://sunny8080-weather-app.netlify.app/" />
+        <meta property="og:title" content="Weather App - By Sunny" />
+        <meta property="og:description" content="Weather App by using HTML, CSS and JavaScript" />
+        <meta property="og:type" content="weather-app" />
+        <meta property="og:image" content="https://i.postimg.cc/wvDS5w6r/wea.jpg" />
+        <meta property="og:image:type" content="image/jpg" />
+
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1 class="heading">Weather App</h1>
+
+            <div class="tab-container">
+                <p class="tab" data-userWeather>Your Weather</p>
+                <p class="tab" data-searchWeather>Search Weather</p>
+            </div>
+
+            <div class="weather-container">
+                <!-- grant location  -->
+                <div class="sub-container grant-location-container">
+                    <img width="80px" height="80" loading="lazy" src="./assests/location.png" alt="" />
+                    <p>Grant Location Access</p>
+                    <p>Allow access to get weather information</p>
+                    <button class="btn" data-grantAccess>Grant Access</button>
+                </div>
+
+                <!-- lodaing screen container -->
+                <div class="sub-container loading-container">
+                    <img width="150" height="150" src="./assests/loading.gif" alt="" />
+                    <p>Loading</p>
+                </div>
+
+                <!-- search form container -->
+                <form class="sub-container search-container" data-searchForm>
+                    <input placeholder="Search for City ..." type="text" data-searchInput />
+
+                    <button class="btn" type="submit">
+                        <img width="20" height="20" loading="lazy" src="./assests/search.png" alt="" />
+                    </button>
+                </form>
+
+                <!-- weather card -->
+                <div class="sub-container weather-card">
+                    <div class="name">
+                        <p class="cityName" data-cityName></p>
+                        <img class="countryImg" data-countryIcon />
+                    </div>
+
+                    <p data-weatherDesc></p>
+                    <img class="weather-icon" data-weatherIcon />
+                    <p data-temp></p>
+
+                    <!-- parameter container -->
+                    <div class="parameter-container">
+                        <div class="parameter">
+                            <img src="./assests/wind.png" alt="" />
+                            <p>Windspeed</p>
+                            <p data-windSpeed></p>
+                        </div>
+
+                        <div class="parameter">
+                            <img src="./assests/humidity.png" alt="" />
+                            <p>Humidity</p>
+                            <p data-humidity></p>
+                        </div>
+
+                        <div class="parameter">
+                            <img src="./assests/cloud.png" alt="" />
+                            <p>Clouds</p>
+                            <p data-cloudindess></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Handle api error -->
+                <div class="sub-container error-container">
+                    <img class="error-img" src="./assests/404-erro.png" alt="location not found" />
+                    <p>City Not Found</p>
+                    <img class="emoji" src="./assests/frowning-face_2639-fe0f.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <script src="./script.js"></script>
+    </body>
+</html>
