@@ -67,7 +67,9 @@ async function fetchWeatherInfoByCoords(coords) {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
         if (response.status == 404) {
             loadingContainer.classList.remove("active");
-            errorContainer.classList.add("active");
+            if (userTab.classList.contains("current-tab")) {
+                errorContainer.classList.add("active");
+            }
             return;
         }
         const data = await response.json();
@@ -85,7 +87,9 @@ async function fetchWeatherInfoByCityName(city) {
 
         if (response.status == 404) {
             loadingContainer.classList.remove("active");
-            errorContainer.classList.add("active");
+            if (searchTab.classList.contains("current-tab")) {
+                errorContainer.classList.add("active");
+            }
             return;
         }
         const data = await response.json();
@@ -122,7 +126,6 @@ document.querySelector("[data-grantAccess").addEventListener("click", () => {
 });
 
 function setUserCoords(position) {
-    console.log(position);
     const userCoords = {
         lat: position.coords.latitude,
         lon: position.coords.longitude,
