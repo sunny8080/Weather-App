@@ -31,6 +31,7 @@ function switchTab(clickedTab) {
             document.querySelector("[data-searchInput]").focus();
         } else {
             // now active tab will be user tab
+            loadingContainer.classList.remove("active");
             searchContainer.classList.remove("active");
             errorContainer.classList.remove("active");
             weatherCard.classList.remove("active");
